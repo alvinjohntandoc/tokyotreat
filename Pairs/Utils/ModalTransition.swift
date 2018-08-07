@@ -11,7 +11,7 @@ import UIKit
 class ModalShowAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.3
+        return 1.5
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -31,10 +31,11 @@ class ModalShowAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         toViewController.view.frame = CGRect(x: 0, y: transitionContext.containerView.bounds.height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         
         let duration = self.transitionDuration(using: transitionContext)
-       
-        UIView.animate(withDuration: duration, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-            blurEffectView.alpha = 1.0
-            toViewController.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        
+        UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0,
+                       options: .allowUserInteraction, animations: { () -> Void in
+                        blurEffectView.alpha = 1.0
+                        toViewController.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         }) { (_) in
             blurEffectView.removeFromSuperview()
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
@@ -45,9 +46,9 @@ class ModalShowAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
 class ModalHideAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.3
+        return 0.5
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -69,7 +70,7 @@ class ModalHideAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         blurEffectView.alpha = 1.0
         transitionContext.containerView.addSubview(blurEffectView)
         
-    
+        
         transitionContext.containerView.insertSubview(blurEffectView, belowSubview: fromViewController.view)
         
         UIView.animate(withDuration: duration, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
@@ -82,6 +83,6 @@ class ModalHideAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
-       
+        
     }
 }

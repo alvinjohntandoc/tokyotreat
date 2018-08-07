@@ -61,12 +61,14 @@ class MainPresenter: NSObject {
     
     //MARK: - Remember
     func remember(_ card: inout Card) -> Card {
-        if self.firstCard == nil {
-            self.firstCard = card
-            card.isShow = true
-        } else {
-            self.lastCard = card
-            card.isShow = true
+        if !card.isRemoved {
+            if self.firstCard == nil {
+                self.firstCard = card
+                card.isShow = true
+            } else if self.firstCard!.tag != card.tag {
+                self.lastCard = card
+                card.isShow = true
+            }
         }
         
         return card
@@ -109,5 +111,21 @@ class MainPresenter: NSObject {
         }
         
         return nil
+    }
+    
+    //MARK: - Remove Card
+    func remove(_ card: inout Card) -> Card {
+        card.isShow = true
+        card.isShow = true
+        
+        card.isRemoved = true
+        card.isRemoved = true
+        return card
+    }
+    
+    //MARK: - Hide Card
+    func hide(_ card: inout Card) -> Card {
+        card.isShow = false
+        return card
     }
 }

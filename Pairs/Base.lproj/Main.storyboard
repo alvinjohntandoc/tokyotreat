@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -70,7 +70,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a Pair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s98-bQ-jgn">
-                                <rect key="frame" x="87" y="46" width="201" height="36"/>
+                                <rect key="frame" x="87" y="56" width="201" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="jho-8m-fwh"/>
                                 </constraints>
@@ -87,7 +87,7 @@
                             <constraint firstItem="s98-bQ-jgn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="WBN-RT-E8F"/>
                             <constraint firstItem="XP5-zt-faT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="103" id="iab-Ue-U1V"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GkU-ej-PiV" secondAttribute="trailing" constant="43" id="jas-q2-nUG"/>
-                            <constraint firstItem="s98-bQ-jgn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="26" id="m2k-bi-8zK"/>
+                            <constraint firstItem="s98-bQ-jgn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="m2k-bi-8zK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s98-bQ-jgn" secondAttribute="trailing" constant="87" id="rQ9-tu-JT1"/>
                             <constraint firstItem="XP5-zt-faT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="suE-YW-FgW"/>
                             <constraint firstItem="GkU-ej-PiV" firstAttribute="top" secondItem="XP5-zt-faT" secondAttribute="bottom" constant="32" id="ukx-kg-dHT"/>

@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    let kFindPairMessage = "Pick a Pair"
+    let kDefaultMessage = "Pick 2 Cards"
     let kSuccessMessage = "Well done!"
     let kDidNotMatchMessage = "Card did not match! Try Again!"
     
@@ -34,6 +34,11 @@ class MainViewController: UIViewController {
         self.cards = self.presenter.shuffle(&self.cards)
         
         self.collectionView.reloadData()
+        
+        //uncomment if you want to know the positions
+        /*for (index, card) in self.cards.enumerated() {
+            print("index: \(index) - \(card.value)")
+        }*/
     }
 
     //MARK: - Show Rating
@@ -44,6 +49,7 @@ class MainViewController: UIViewController {
         modalViewController.delegate = self
         AJModalViewController.show(viewController: modalViewController, height: 320, width: 320, parent: self)
     }
+    
 }
 
 //MARK: - CollectionView Data Source and Delegate
@@ -77,7 +83,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.cards[indexPath.row] = self.presenter.remember(&self.cards[indexPath.row])
         self.collectionView.reloadData()
-        self.presenter.check()
+        
+        delay(0.3) {
+            self.presenter.check()
+        }
     }
     
 }
@@ -85,42 +94,31 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension MainViewController: MainView {
     
     func mainViewCardsDidNotMatch(firstCard: Card, lastCard: Card) {
-        self.view.isUserInteractionEnabled = false
-        
         self.messageLabel.text = self.kDidNotMatchMessage
         
         self.presenter.roundCounter += 1
         
+        self.cards[firstCard.tag!] = self.presenter.hide(&self.cards[firstCard.tag!])
+        self.cards[lastCard.tag!] = self.presenter.hide(&self.cards[lastCard.tag!])
+        
         delay(1.0) {
-            self.cards[firstCard.tag!].isShow = false
-            self.cards[lastCard.tag!].isShow = false
-            self.view.isUserInteractionEnabled = true
-            
             self.collectionView.reloadData()
-            
-            self.messageLabel.text = ""
+            self.messageLabel.text = self.kDefaultMessage
         }
     }
     
     func mainViewCardsMatched(firstCard: Card, lastCard: Card) {
-        self.view.isUserInteractionEnabled = false
         self.presenter.matchedCounter += 1
         
         self.messageLabel.text = self.kSuccessMessage
         
         self.presenter.roundCounter += 1
         
+        self.cards[firstCard.tag!] = self.presenter.remove(&self.cards[lastCard.tag!])
+        
         delay(1.0) {
-            self.cards[firstCard.tag!].isShow = true
-            self.cards[lastCard.tag!].isShow = true
-            
-            self.cards[firstCard.tag!].isRemoved = true
-            self.cards[lastCard.tag!].isRemoved = true
-            
-            self.view.isUserInteractionEnabled = true
-
             self.collectionView.reloadData()
-            self.messageLabel.text = ""
+            self.messageLabel.text = self.kDefaultMessage
             
             if self.presenter.isCompleted {
                 self.showRating()
