@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		E17FA4A3211987F600488C4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4A2211987F600488C4E /* AppDelegate.swift */; };
-		E17FA4A5211987F600488C4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4A4211987F600488C4E /* ViewController.swift */; };
+		E17FA4A5211987F600488C4E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4A4211987F600488C4E /* MainViewController.swift */; };
 		E17FA4A8211987F600488C4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17FA4A6211987F600488C4E /* Main.storyboard */; };
 		E17FA4AA211987FA00488C4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E17FA4A9211987FA00488C4E /* Assets.xcassets */; };
 		E17FA4AD211987FA00488C4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17FA4AB211987FA00488C4E /* LaunchScreen.storyboard */; };
 		E17FA4B8211987FA00488C4E /* PairsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4B7211987FA00488C4E /* PairsTests.swift */; };
 		E17FA4C3211987FA00488C4E /* PairsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4C2211987FA00488C4E /* PairsUITests.swift */; };
+		E17FA4D5211988B300488C4E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4D4211988B300488C4E /* Card.swift */; };
+		E17FA4D92119894700488C4E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4D82119894700488C4E /* MainPresenter.swift */; };
+		E17FA4DB2119896300488C4E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4DA2119896300488C4E /* MainView.swift */; };
+		E17FA4DE2119A34800488C4E /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4DD2119A34800488C4E /* CardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,7 @@
 /* Begin PBXFileReference section */
 		E17FA49F211987F600488C4E /* Pairs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pairs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17FA4A2211987F600488C4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E17FA4A4211987F600488C4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E17FA4A4211987F600488C4E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E17FA4A7211987F600488C4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E17FA4A9211987FA00488C4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E17FA4AC211987FA00488C4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,10 @@
 		E17FA4BE211987FA00488C4E /* PairsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PairsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17FA4C2211987FA00488C4E /* PairsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsUITests.swift; sourceTree = "<group>"; };
 		E17FA4C4211987FA00488C4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E17FA4D4211988B300488C4E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		E17FA4D82119894700488C4E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		E17FA4DA2119896300488C4E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		E17FA4DD2119A34800488C4E /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +105,12 @@
 		E17FA4A1211987F600488C4E /* Pairs */ = {
 			isa = PBXGroup;
 			children = (
+				E17FA4DC2119A30D00488C4E /* Cells */,
+				E17FA4D32119889E00488C4E /* ViewControllers */,
+				E17FA4D22119888800488C4E /* Model */,
+				E17FA4D12119885400488C4E /* View */,
+				E17FA4D02119884000488C4E /* Presenter */,
 				E17FA4A2211987F600488C4E /* AppDelegate.swift */,
-				E17FA4A4211987F600488C4E /* ViewController.swift */,
 				E17FA4A6211987F600488C4E /* Main.storyboard */,
 				E17FA4A9211987FA00488C4E /* Assets.xcassets */,
 				E17FA4AB211987FA00488C4E /* LaunchScreen.storyboard */,
@@ -123,6 +135,46 @@
 				E17FA4C4211987FA00488C4E /* Info.plist */,
 			);
 			path = PairsUITests;
+			sourceTree = "<group>";
+		};
+		E17FA4D02119884000488C4E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E17FA4D82119894700488C4E /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E17FA4D12119885400488C4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E17FA4DA2119896300488C4E /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E17FA4D22119888800488C4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E17FA4D4211988B300488C4E /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E17FA4D32119889E00488C4E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E17FA4A4211987F600488C4E /* MainViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E17FA4DC2119A30D00488C4E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E17FA4DD2119A34800488C4E /* CardCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +308,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E17FA4A5211987F600488C4E /* ViewController.swift in Sources */,
+				E17FA4A5211987F600488C4E /* MainViewController.swift in Sources */,
+				E17FA4D5211988B300488C4E /* Card.swift in Sources */,
 				E17FA4A3211987F600488C4E /* AppDelegate.swift in Sources */,
+				E17FA4DB2119896300488C4E /* MainView.swift in Sources */,
+				E17FA4DE2119A34800488C4E /* CardCollectionViewCell.swift in Sources */,
+				E17FA4D92119894700488C4E /* MainPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
