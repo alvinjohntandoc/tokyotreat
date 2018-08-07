@@ -24,25 +24,29 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
     
         presenter.attachView(view: self)
-        
+        self.start()
+    }
+    
+    //MARK: - Start
+    func start() {
+        self.cards.removeAll()
         self.cards = self.presenter.generateCards(characters: "abcdefgh")
         self.cards = self.presenter.shuffle(&self.cards)
         
         self.collectionView.reloadData()
-        
-        for card in cards {
-            print(card.value)
-        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //MARK: - Show Rating
+    func showRating() {
+        guard let score = self.presenter.score else {return}
+        let modalViewController: ModalViewController = self.storyboard?.instantiateViewController(withIdentifier: "ModalViewController") as! ModalViewController
+        modalViewController.score = score
+        modalViewController.delegate = self
+        AJModalViewController.show(viewController: modalViewController, height: 320, width: 320, parent: self)
     }
-    
-
 }
 
+//MARK: - CollectionView Data Source and Delegate
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -109,17 +113,27 @@ extension MainViewController: MainView {
         delay(1.0) {
             self.cards[firstCard.tag!].isShow = true
             self.cards[lastCard.tag!].isShow = true
+            
             self.cards[firstCard.tag!].isRemoved = true
             self.cards[lastCard.tag!].isRemoved = true
+            
             self.view.isUserInteractionEnabled = true
 
             self.collectionView.reloadData()
             self.messageLabel.text = ""
             
             if self.presenter.isCompleted {
-                print("Round: \(self.presenter.roundCounter)")
+                self.showRating()
             }
         }
+    }
+    
+}
+
+extension MainViewController: ModalViewControllerDelegate {
+    
+    func modalViewControllerPlayAgain() {
+        self.start()
     }
     
 }

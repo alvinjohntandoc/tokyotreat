@@ -18,6 +18,9 @@
 		E17FA4D92119894700488C4E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4D82119894700488C4E /* MainPresenter.swift */; };
 		E17FA4DB2119896300488C4E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4DA2119896300488C4E /* MainView.swift */; };
 		E17FA4DE2119A34800488C4E /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4DD2119A34800488C4E /* CardCollectionViewCell.swift */; };
+		E17FA4E02119C40B00488C4E /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4DF2119C40B00488C4E /* ModalViewController.swift */; };
+		E17FA4E22119C58100488C4E /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4E12119C58100488C4E /* ModalTransition.swift */; };
+		E17FA4E42119C59500488C4E /* AJModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4E32119C59500488C4E /* AJModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		E17FA4D82119894700488C4E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		E17FA4DA2119896300488C4E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E17FA4DD2119A34800488C4E /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		E17FA4DF2119C40B00488C4E /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		E17FA4E12119C58100488C4E /* ModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
+		E17FA4E32119C59500488C4E /* AJModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AJModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 		E17FA4A1211987F600488C4E /* Pairs */ = {
 			isa = PBXGroup;
 			children = (
+				E17FA4E52119C59900488C4E /* Utils */,
 				E17FA4DC2119A30D00488C4E /* Cells */,
 				E17FA4D32119889E00488C4E /* ViewControllers */,
 				E17FA4D22119888800488C4E /* Model */,
@@ -165,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				E17FA4A4211987F600488C4E /* MainViewController.swift */,
+				E17FA4DF2119C40B00488C4E /* ModalViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -175,6 +183,15 @@
 				E17FA4DD2119A34800488C4E /* CardCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		E17FA4E52119C59900488C4E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E17FA4E32119C59500488C4E /* AJModalViewController.swift */,
+				E17FA4E12119C58100488C4E /* ModalTransition.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,12 +325,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E17FA4E22119C58100488C4E /* ModalTransition.swift in Sources */,
 				E17FA4A5211987F600488C4E /* MainViewController.swift in Sources */,
 				E17FA4D5211988B300488C4E /* Card.swift in Sources */,
+				E17FA4E42119C59500488C4E /* AJModalViewController.swift in Sources */,
 				E17FA4A3211987F600488C4E /* AppDelegate.swift in Sources */,
 				E17FA4DB2119896300488C4E /* MainView.swift in Sources */,
 				E17FA4DE2119A34800488C4E /* CardCollectionViewCell.swift in Sources */,
 				E17FA4D92119894700488C4E /* MainPresenter.swift in Sources */,
+				E17FA4E02119C40B00488C4E /* ModalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

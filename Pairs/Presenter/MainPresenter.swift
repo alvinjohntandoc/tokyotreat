@@ -90,6 +90,24 @@ class MainPresenter: NSObject {
     }
     
     var isCompleted: Bool {
-        return self.matchedCounter == self.characters.count / 2
+        return self.matchedCounter == self.characters.count
+    }
+    
+    /*⭐️⭐️⭐️ = 8 rounds or fewer
+    ⭐️⭐️ = 12 rounds or fewer
+    ⭐️ = 13 rounds or more*/
+    
+    var score: Int? {
+        if self.isCompleted {
+            if roundCounter <= 8 {
+                return 3
+            } else if roundCounter <= 12 {
+                return 2
+            } else {
+                return 1
+            }
+        }
+        
+        return nil
     }
 }
