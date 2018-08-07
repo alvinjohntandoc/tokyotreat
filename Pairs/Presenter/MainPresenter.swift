@@ -12,8 +12,8 @@ class MainPresenter: NSObject {
     
     var view: MainView?
     
-    var firstCard: Card?
-    var lastCard: Card?
+    var firstBox: Box?
+    var lastBox: Box?
     
     private var characters: String = ""
     
@@ -48,81 +48,78 @@ class MainPresenter: NSObject {
     }
     
     //MARK: Generate Cards
-    func generateCards(characters: String) -> [Card] {
+    func generateCards(characters: String) -> [Box] {
         self.characters = characters
         
-        var cards: [Card] = []
+        var boxes: [Box] = []
         for c in characters {
-            let card1 = Card(value: c)
-            let card2 = Card(value: c)
+            let box1 = Box(value: c)
+            let box2 = Box(value: c)
             
-            cards.append(card1)
-            cards.append(card2)
+            boxes.append(box1)
+            boxes.append(box2)
         }
         
-        return cards
+        return boxes
     }
     
     //MARK: - Shuffle
-    func shuffle(_ cards: inout [Card]) -> [Card] {
-        var counter = cards.count
-        let max: Int = cards.count - 1
+    func shuffle(_ boxes: inout [Box]) -> [Box] {
+        var counter = boxes.count
+        let max: Int = boxes.count - 1
         
         while counter != 0 {
             let randomIndex: Int = Int(arc4random_uniform(UInt32(max)))
-            cards.swapAt(max, randomIndex)
+            boxes.swapAt(max, randomIndex)
             counter -= 1
         }
         
-        return cards
+        return boxes
     }
     
     //MARK: - Remember
-    func remember(_ card: inout Card) -> Card {
-        if !card.isRemoved {
-            if self.firstCard == nil {
-                self.firstCard = card
-                card.isShow = true
-            } else if self.firstCard!.tag != card.tag {
-                self.lastCard = card
-                card.isShow = true
+    func remember(_ box: inout Box) -> Box {
+        if !box.isRemoved {
+            if self.firstBox == nil {
+                self.firstBox = box
+                box.isShow = true
+            } else if self.firstBox!.tag != box.tag {
+                self.lastBox = box
+                box.isShow = true
             }
         }
         
-        return card
+        return box
     }
     
     //MARK: - Check
     func check() {
-        if self.firstCard != nil && self.lastCard != nil {
-            if self.firstCard!.value != self.lastCard!.value {
-                self.view?.mainViewCardsDidNotMatch(firstCard: self.firstCard!, lastCard: self.lastCard!)
+        if self.firstBox != nil && self.lastBox != nil {
+            if self.firstBox!.value != self.lastBox!.value {
+                self.view?.mainViewCardsDidNotMatch(firstCard: self.firstBox!, lastCard: self.lastBox!)
                 
-                self.firstCard = nil
-                self.lastCard = nil
+                self.firstBox = nil
+                self.lastBox = nil
             } else {
                 
-                self.view?.mainViewCardsMatched(firstCard: self.firstCard!, lastCard: self.lastCard!)
+                self.view?.mainViewCardsMatched(firstBox: self.firstBox!, lastBox: self.lastBox!)
                 
-                self.firstCard = nil
-                self.lastCard = nil
+                self.firstBox = nil
+                self.lastBox = nil
             }
         }
     }
     
     //MARK: - Remove Card
-    func remove(_ card: inout Card) -> Card {
-        card.isShow = true
-        card.isShow = true
-        
-        card.isRemoved = true
-        card.isRemoved = true
-        return card
+    func remove(_ box: inout Box) -> Box {
+        box.isShow = true
+        box.isRemoved = true
+        return box
     }
     
     //MARK: - Hide Card
-    func hide(_ card: inout Card) -> Card {
-        card.isShow = false
-        return card
+    func hide(_ box: inout Box) -> Box {
+        box.isShow = false
+        return box
     }
 }

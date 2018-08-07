@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7033DE1A211A04760087EB6C /* BoxCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7033DE19211A04760087EB6C /* BoxCollectionViewCell.swift */; };
 		E17FA4A3211987F600488C4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4A2211987F600488C4E /* AppDelegate.swift */; };
 		E17FA4A5211987F600488C4E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4A4211987F600488C4E /* MainViewController.swift */; };
 		E17FA4A8211987F600488C4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17FA4A6211987F600488C4E /* Main.storyboard */; };
@@ -14,10 +15,9 @@
 		E17FA4AD211987FA00488C4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17FA4AB211987FA00488C4E /* LaunchScreen.storyboard */; };
 		E17FA4B8211987FA00488C4E /* PairsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4B7211987FA00488C4E /* PairsTests.swift */; };
 		E17FA4C3211987FA00488C4E /* PairsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4C2211987FA00488C4E /* PairsUITests.swift */; };
-		E17FA4D5211988B300488C4E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4D4211988B300488C4E /* Card.swift */; };
+		E17FA4D5211988B300488C4E /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4D4211988B300488C4E /* Box.swift */; };
 		E17FA4D92119894700488C4E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4D82119894700488C4E /* MainPresenter.swift */; };
 		E17FA4DB2119896300488C4E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4DA2119896300488C4E /* MainView.swift */; };
-		E17FA4DE2119A34800488C4E /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4DD2119A34800488C4E /* CardCollectionViewCell.swift */; };
 		E17FA4E02119C40B00488C4E /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4DF2119C40B00488C4E /* ModalViewController.swift */; };
 		E17FA4E22119C58100488C4E /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4E12119C58100488C4E /* ModalTransition.swift */; };
 		E17FA4E42119C59500488C4E /* AJModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FA4E32119C59500488C4E /* AJModalViewController.swift */; };
@@ -41,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7033DE19211A04760087EB6C /* BoxCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxCollectionViewCell.swift; sourceTree = "<group>"; };
 		E17FA49F211987F600488C4E /* Pairs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pairs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17FA4A2211987F600488C4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E17FA4A4211987F600488C4E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -54,10 +55,9 @@
 		E17FA4BE211987FA00488C4E /* PairsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PairsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17FA4C2211987FA00488C4E /* PairsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsUITests.swift; sourceTree = "<group>"; };
 		E17FA4C4211987FA00488C4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E17FA4D4211988B300488C4E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		E17FA4D4211988B300488C4E /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		E17FA4D82119894700488C4E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		E17FA4DA2119896300488C4E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		E17FA4DD2119A34800488C4E /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		E17FA4DF2119C40B00488C4E /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		E17FA4E12119C58100488C4E /* ModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
 		E17FA4E32119C59500488C4E /* AJModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AJModalViewController.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 		E17FA4D22119888800488C4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E17FA4D4211988B300488C4E /* Card.swift */,
+				E17FA4D4211988B300488C4E /* Box.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 		E17FA4DC2119A30D00488C4E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				E17FA4DD2119A34800488C4E /* CardCollectionViewCell.swift */,
+				7033DE19211A04760087EB6C /* BoxCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -327,12 +327,12 @@
 			files = (
 				E17FA4E22119C58100488C4E /* ModalTransition.swift in Sources */,
 				E17FA4A5211987F600488C4E /* MainViewController.swift in Sources */,
-				E17FA4D5211988B300488C4E /* Card.swift in Sources */,
+				E17FA4D5211988B300488C4E /* Box.swift in Sources */,
 				E17FA4E42119C59500488C4E /* AJModalViewController.swift in Sources */,
 				E17FA4A3211987F600488C4E /* AppDelegate.swift in Sources */,
 				E17FA4DB2119896300488C4E /* MainView.swift in Sources */,
-				E17FA4DE2119A34800488C4E /* CardCollectionViewCell.swift in Sources */,
 				E17FA4D92119894700488C4E /* MainPresenter.swift in Sources */,
+				7033DE1A211A04760087EB6C /* BoxCollectionViewCell.swift in Sources */,
 				E17FA4E02119C40B00488C4E /* ModalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Card {
+struct Box {
     var value: Character
     var isShow: Bool = false
     var isRemoved: Bool = false

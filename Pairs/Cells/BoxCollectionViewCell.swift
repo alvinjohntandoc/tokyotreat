@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardCollectionViewCell: UICollectionViewCell {
+class BoxCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var valueLabel: UILabel!
     
@@ -17,15 +17,15 @@ class CardCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func bind(_ card: Card) {
-        if card.isRemoved {
+    func bind(_ box: Box) {
+        if box.isRemoved {
             self.backgroundColor = UIColor.white
         } else {
             self.backgroundColor = UIColor.black
         }
         
-        if card.isShow {
-            self.valueLabel.text = "\(card.value)"
+        if box.isShow {
+            self.valueLabel.text = "\(box.value)"
         } else {
             self.valueLabel.text = ""
         }
