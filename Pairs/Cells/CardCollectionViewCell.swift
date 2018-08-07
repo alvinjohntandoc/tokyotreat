@@ -18,7 +18,6 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
     
     func bind(_ card: Card) {
-        
         if card.isRemoved {
             self.backgroundColor = UIColor.white
         } else {

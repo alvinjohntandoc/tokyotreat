@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var messageLabel: UILabel!
     
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -91,6 +92,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 }
 
+//MARK: Main View
 extension MainViewController: MainView {
     
     func mainViewCardsDidNotMatch(firstCard: Card, lastCard: Card) {
@@ -128,6 +130,7 @@ extension MainViewController: MainView {
     
 }
 
+//MARK: - Modal View Controller Delegate
 extension MainViewController: ModalViewControllerDelegate {
     
     func modalViewControllerPlayAgain() {

@@ -9,7 +9,6 @@
 import UIKit
 
 protocol MainView {
-    
     func mainViewCardsDidNotMatch(firstCard: Card, lastCard: Card)
     func mainViewCardsMatched(firstCard: Card, lastCard: Card)
 }

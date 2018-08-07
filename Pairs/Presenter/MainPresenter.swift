@@ -17,13 +17,31 @@ class MainPresenter: NSObject {
     
     private var characters: String = ""
     
-    var roundCounter: Int = 0 {
-        didSet {
-            print(roundCounter)
-        }
+    var roundCounter: Int = 0
+    var matchedCounter: Int = 0
+    
+    //all cards has been matched
+    var isCompleted: Bool {
+        return self.matchedCounter == self.characters.count
     }
     
-    var matchedCounter: Int = 0
+    /*⭐️⭐️⭐️ = 8 rounds or fewer
+     ⭐️⭐️ = 12 rounds or fewer
+     ⭐️ = 13 rounds or more*/
+    
+    var score: Int? {
+        if self.isCompleted {
+            if roundCounter <= 8 {
+                return 3
+            } else if roundCounter <= 12 {
+                return 2
+            } else {
+                return 1
+            }
+        }
+        
+        return nil
+    }
     
     func attachView(view: MainView) {
         self.view = view
@@ -48,11 +66,11 @@ class MainPresenter: NSObject {
     //MARK: - Shuffle
     func shuffle(_ cards: inout [Card]) -> [Card] {
         var counter = cards.count
-        let lastCount: Int = cards.count - 1
+        let max: Int = cards.count - 1
         
         while counter != 0 {
-            let randomIndex: Int = Int(arc4random_uniform(UInt32(lastCount)))
-            cards.swapAt(lastCount, randomIndex)
+            let randomIndex: Int = Int(arc4random_uniform(UInt32(max)))
+            cards.swapAt(max, randomIndex)
             counter -= 1
         }
         
@@ -74,6 +92,7 @@ class MainPresenter: NSObject {
         return card
     }
     
+    //MARK: - Check
     func check() {
         if self.firstCard != nil && self.lastCard != nil {
             if self.firstCard!.value != self.lastCard!.value {
@@ -89,28 +108,6 @@ class MainPresenter: NSObject {
                 self.lastCard = nil
             }
         }
-    }
-    
-    var isCompleted: Bool {
-        return self.matchedCounter == self.characters.count
-    }
-    
-    /*⭐️⭐️⭐️ = 8 rounds or fewer
-    ⭐️⭐️ = 12 rounds or fewer
-    ⭐️ = 13 rounds or more*/
-    
-    var score: Int? {
-        if self.isCompleted {
-            if roundCounter <= 8 {
-                return 3
-            } else if roundCounter <= 12 {
-                return 2
-            } else {
-                return 1
-            }
-        }
-        
-        return nil
     }
     
     //MARK: - Remove Card
