@@ -20,6 +20,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var messageLabel: UILabel!
     
+    var timer: Timer?
+    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +50,7 @@ class MainViewController: UIViewController {
         let modalViewController: ModalViewController = self.storyboard?.instantiateViewController(withIdentifier: "ModalViewController") as! ModalViewController
         modalViewController.score = score
         modalViewController.delegate = self
-        AJModalViewController.show(viewController: modalViewController, height: 320, width: 320, parent: self)
+        AJModalViewController.show(viewController: modalViewController, height: 320, width: 320, parent: self, dismissOnTouch: false)
     }
     
 }
@@ -82,6 +84,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.collectionView.reloadData()
         self.boxes[indexPath.row] = self.presenter.remember(&self.boxes[indexPath.row])
         self.collectionView.reloadData()
         
@@ -103,9 +106,9 @@ extension MainViewController: MainView {
         self.boxes[firstCard.tag!] = self.presenter.hide(&self.boxes[firstCard.tag!])
         self.boxes[lastCard.tag!] = self.presenter.hide(&self.boxes[lastCard.tag!])
         
-        delay(1.0) {
-            self.collectionView.reloadData()
+        delay(0.5) {
             self.messageLabel.text = self.kDefaultMessage
+            self.collectionView.reloadData()
         }
     }
     
@@ -119,10 +122,9 @@ extension MainViewController: MainView {
         self.boxes[firstBox.tag!] = self.presenter.remove(&self.boxes[firstBox.tag!])
         self.boxes[firstBox.tag!] = self.presenter.remove(&self.boxes[lastBox.tag!])
         
-        delay(1.0) {
+        delay(0.5) {
             self.collectionView.reloadData()
             self.messageLabel.text = self.kDefaultMessage
-            
             if self.presenter.isCompleted {
                 self.showRating()
             }
